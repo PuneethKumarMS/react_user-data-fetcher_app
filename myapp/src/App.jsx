@@ -2,11 +2,8 @@ import React, {Component} from "react";
 const API_URL =  'https://jsonplaceholder.typicode.com/users'; 
 
 class App extends Component {
-
   constructor(props) {
-
     super(props);
-
     this.state = {
       data: [],
       filteredData: [],
@@ -25,7 +22,6 @@ class App extends Component {
 
     try{
       const response = await fetch(API_URL);
-
       if(!response.ok) {
         throw new Error('failed to fetch data');
       }
@@ -39,7 +35,6 @@ class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState){
-
     if(prevState.searchQuery !== this.state.searchQuery) {
       this.filterData();
     }
@@ -51,7 +46,6 @@ class App extends Component {
   };
 
   filterData = () => {
-
     const{ data, searchQuery} = this.state;
     if(searchQuery.trim() === ''){
       this.setState({filteredData: data});
@@ -115,9 +109,7 @@ class App extends Component {
             </tbody>
           </table>
         )}
-
         <button onClick={this.fetchData}>Refresh Data</button>
-
       </div>
     );
   }
